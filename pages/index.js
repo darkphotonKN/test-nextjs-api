@@ -2,15 +2,15 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
+import api from '../axios';
 
 export default function Home() {
   const [data, setData] = useState({});
 
   useEffect(() => {
     (async function getData() {
-      const res = await fetch('/api/profile');
-      const resJson = await res.json();
-      setData(resJson);
+      const { data } = await api.get('/api/profile');
+      setData(data);
     })();
   }, []);
 
