@@ -1,3 +1,3 @@
-import createServer from 'next/dist/server/next';
+import axios from 'axios';
 
-export const api = createServer('');
+export const api = axios.createServer({ baseURL: '' });
